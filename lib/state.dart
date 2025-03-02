@@ -20,3 +20,9 @@ class ProductSuccess extends HomeScreenState {
 }
 
 class ProductError extends HomeScreenState {}
+
+class SignUpLoading extends HomeScreenState {}
+
+class SignUpSuccess extends HomeScreenState {}
+
+class SignUpError extends HomeScreenState {}
