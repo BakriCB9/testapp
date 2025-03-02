@@ -30,30 +30,31 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  UseCaseCategory useCaseCategory=UseCaseCategory();
-  
-  HomeScreenBloc homeCubit = HomeScreenBloc(UseCaseCategory(),UsecaseProduct());
- 
+  UseCaseCategory useCaseCategory = UseCaseCategory();
+
+  HomeScreenBloc homeCubit =
+      HomeScreenBloc(UseCaseCategory(), UsecaseProduct());
 
   @override
   Widget build(BuildContext context) {
+    print('we change the login branch now');
+
     context.read<HomeScreenBloc>().add(GetProductsEvent());
-    context.read<HomeScreenBloc>().add(GetCategoriesEvent());
-    // BlocProvider.of<HomeScreenBloc>(context).add(GetCategoriesEvent());
+    //context.read<HomeScreenBloc>().add(GetCategoriesEvent());
+    BlocProvider.of<HomeScreenBloc>(context).add(GetCategoriesEvent());
 
     return Scaffold(
       appBar: AppBar(),
       body: Column(
         children: [
+          Container(
+              color: Colors.black, child:const  Text('we work in login branch')),
           BlocBuilder<HomeScreenBloc, HomeStateBloc>(
-            
             bloc: homeCubit,
             builder: (context, state) {
               if (state.isCategoryLoading) {
-                
                 return const Center(child: CircularProgressIndicator());
               } else if (state.categoryList.isEmpty) {
-                
                 return const Center(
                   child: Text(
                     'we success to get data',
@@ -61,26 +62,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               }
-              
+
               return const Text(
                 'Failded to get data now fromm category',
                 style: TextStyle(fontSize: 20, color: Colors.red),
               );
-              
             },
           ),
           const SizedBox(height: 50),
           BlocBuilder<HomeScreenBloc, HomeStateBloc>(
-             
               bloc: homeCubit,
               builder: (context, state) {
                 if (state.isProductLoading) {
-                  
-                  return const  Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (state.productList.isEmpty) {
-              
                   return const Center(
                     child: Text(
                       'we success to get data of product',
@@ -88,12 +85,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   );
                 }
-              
+
                 return const Text(
                   'Failded to get data now',
                   style: TextStyle(fontSize: 20, color: Colors.red),
                 );
-               
               })
         ],
       ),
