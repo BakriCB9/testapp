@@ -42,8 +42,11 @@ class _HomeScreenState extends State<HomeScreen> {
     context.read<HomeScreenBloc>().add(GetProductsEvent());
     //context.read<HomeScreenBloc>().add(GetCategoriesEvent());
     BlocProvider.of<HomeScreenBloc>(context).add(GetCategoriesEvent());
-    print('we stand in check branch now');
+    print(
+        '------------------we stand in check branch now------------------------');
     context.read<HomeScreenBloc>().add(GetCategoriesEvent());
+    print(
+        '------------------we stand in check branch now------------------------');
 
     return Scaffold(
       appBar: AppBar(),
