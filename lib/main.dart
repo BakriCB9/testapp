@@ -37,21 +37,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('we are in sign up featre now ');
-    //Scaffold.of(context).
-    //context.read<HomeScreenBloc>().add(GetProductsEvent());
+    print('we change the login branch now');
+
+    context.read<HomeScreenBloc>().add(GetProductsEvent());
     //context.read<HomeScreenBloc>().add(GetCategoriesEvent());
     BlocProvider.of<HomeScreenBloc>(context).add(GetCategoriesEvent());
-    print('');
+    print(
+        '------------------we stand in check branch now------------------------');
+    context.read<HomeScreenBloc>().add(GetCategoriesEvent());
+    print(
+        '------------------we stand in check branch now------------------------');
+    print('bakkkkkkar');
 
     return Scaffold(
       appBar: AppBar(),
       body: Column(
         children: [
           Container(
-            color: Colors.green,
-            child: const Text('we are in sign up branch'),
-          ),
+              color: Colors.black,
+              child: const Text('we work in login branch')),
           BlocBuilder<HomeScreenBloc, HomeStateBloc>(
             bloc: homeCubit,
             builder: (context, state) {
