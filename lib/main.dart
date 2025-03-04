@@ -37,17 +37,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('we change the login branch now');
+    /// we stop every thing in branch login
+    // print('we change the login branch now');
 
-    context.read<HomeScreenBloc>().add(GetProductsEvent());
-    //context.read<HomeScreenBloc>().add(GetCategoriesEvent());
-    BlocProvider.of<HomeScreenBloc>(context).add(GetCategoriesEvent());
-    print(
-        '------------------we stand in check branch now------------------------');
-    context.read<HomeScreenBloc>().add(GetCategoriesEvent());
-    print(
-        '------------------we stand in check branch now------------------------');
-    print('bakkkkkkar');
+    // context.read<HomeScreenBloc>().add(GetProductsEvent());
+    // //context.read<HomeScreenBloc>().add(GetCategoriesEvent());
+    // BlocProvider.of<HomeScreenBloc>(context).add(GetCategoriesEvent());
+    // print(
+    //     '------------------we stand in check branch now------------------------');
+    // context.read<HomeScreenBloc>().add(GetCategoriesEvent());
+    // print(
+    //     '------------------we stand in check branch now------------------------');
+    // print('bakkkkkkar');
 
     return Scaffold(
       appBar: AppBar(),
