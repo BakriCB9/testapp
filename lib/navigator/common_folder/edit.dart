@@ -9,6 +9,9 @@ class EditFile extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Login branchs'),
       ),
+      body: Column(
+        children: [Container(), const Text('we are in login branch now')],
+      ),
     );
   }
 }
